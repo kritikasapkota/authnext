@@ -1,5 +1,6 @@
 "use client";
-import { useSession, signOut } from "next-auth/react";
+import { useSession, signOut , signIn } from "next-auth/react";
+
 export default function Home() {
   const { data: session } = useSession();
   if (session) {
@@ -10,4 +11,10 @@ export default function Home() {
       </>
     );
   }
+  return (
+    <div >
+      <h2>Login Page</h2>
+      <button onClick={() => signIn()}>Sign in with GitHub</button>
+    </div>
+  );
 }
